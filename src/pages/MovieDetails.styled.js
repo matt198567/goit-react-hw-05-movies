@@ -20,3 +20,17 @@ export const ItemDetails = styled.li`
     margin-right: 0;
   }
 `;
+
+export const MovieTitle = styled.h2`
+  margin: 26px 0;
+`;
+
+export const MovieOverview = styled.h3`
+  margin: 24px 0;
+`;
+
+export const MovieGenres = styled.p`
+  margin: 20px 0;
+  font-weight: bold;
+  font-size: 18px;
+`;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieInfo } from 'services/movieAPI';
 import {
@@ -6,6 +6,9 @@ import {
   InfoContainer,
   ListDetails,
   ItemDetails,
+  MovieTitle,
+  MovieOverview,
+  MovieGenres,
 } from './MovieDetails.styled';
 
 const MovieDetails = () => {
@@ -52,18 +55,18 @@ const MovieDetails = () => {
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           alt={`${original_title}`}
-          height={600}
+          height={400}
         />
         <InfoContainer>
-          <h2>
+          <MovieTitle>
             {original_title} {movieReleaseDate}
-          </h2>
+          </MovieTitle>
           <p>
             User score: <span>{Math.round(vote_average * 10)}%</span>
           </p>
-          <h3>Overview</h3>
+          <MovieOverview>Overview</MovieOverview>
           <p>{overview}</p>
-          <p>Genres</p>
+          <MovieGenres>Genres</MovieGenres>
           <p>{genreList}</p>
         </InfoContainer>
       </MovieWrap>
@@ -83,7 +86,9 @@ const MovieDetails = () => {
           </Link>
         </ItemDetails>
       </ListDetails>
-      <Outlet />
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };
