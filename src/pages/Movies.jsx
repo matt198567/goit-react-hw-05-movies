@@ -11,14 +11,15 @@ export const Movies = () => {
   const handleSubmit = e => {
     e.preventDefault();
     e.target.reset();
-    setQuery(inputSearch);
 
     if (inputSearch.length === 0) {
       return alert('Please, enter your request');
     }
-    if (inputSearch.length !== 'query') {
-      return alert('We can not found anythings, please repeate your request');
-    }
+
+    // if (inputSearch.length !== 'query') {
+    //   return alert('We can not found anythings, please repeate your request');
+    // }
+    setQuery(inputSearch);
   };
 
   return (

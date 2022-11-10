@@ -31,7 +31,7 @@ export const MovieSearchList = ({ query }) => {
           {movieList.map(({ id, title }) => {
             return (
               <li key={id}>
-                <Link to={`${id}`} state={{ from: location }}>
+                <Link to={`/movies/${id}`} state={{ from: location }}>
                   {title}
                 </Link>
               </li>
